@@ -30,7 +30,7 @@ Meta Ray-Ban Display 用の歩数計 WebApp。加速度センサーでリアル�
 
 ディープリンク:
 ```
-fb-viewapp://web_app_deep_link?appName=%E3%82%B0%E3%83%A9%E3%82%B9%E6%AD%A9%E6%95%B0%E8%A8%88&appUrl=https%3A%2F%2Fglass-pedometer.vercel.app
+fb-viewapp://web_app_deep_link?appName=glass-pedometer&appUrl=https%3A%2F%2Fglass-pedometer.vercel.app
 ```
 
 手動登録の場合: Meta AI アプリ → デバイス → ディスプレイグラス設定 → アプリ接続 → Web アプリ → 「Web アプリを追加」で名前 `グラス歩数計`、URL `https://glass-pedometer.vercel.app` を入力。
