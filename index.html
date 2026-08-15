@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=600, height=600, initial-scale=1.0, user-scalable=no">
+  <meta name="description" content="加速度センサーでリアルタイムに歩数をカウントし、目標達成率をリング表示するMeta Ray-Ban Display用歩数計。">
+  <meta name="mrbd-web-app-capable" content="yes">
+  <title>グラス歩数計</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    <div id="home" class="screen">
+      <header class="header">
+        <h1>グラス歩数計</h1>
+        <span class="header-meta" id="status-indicator">停止中</span>
+      </header>
+      <div class="content home-content">
+        <div class="ring-wrap">
+          <svg class="ring-svg" viewBox="0 0 200 200">
+            <circle class="ring-bg" cx="100" cy="100" r="90"></circle>
+            <circle class="ring-fill" id="ring-fill" cx="100" cy="100" r="90" transform="rotate(-90 100 100)"></circle>
+          </svg>
+          <div class="ring-center">
+            <div class="steps-value" id="steps-value">0</div>
+            <div class="steps-label">歩 / <span id="goal-value">6000</span></div>
+            <div class="steps-percent" id="steps-percent">0%</div>
+          </div>
+        </div>
+        <div class="data-grid">
+          <div class="card">
+            <div class="card-subtitle">距離</div>
+            <div class="card-value" id="distance-value">0.00 km</div>
+          </div>
+          <div class="card">
+            <div class="card-subtitle">消費カロリー</div>
+            <div class="card-value" id="calorie-value">0 kcal</div>
+          </div>
+        </div>
+      </div>
+      <nav class="nav-bar">
+        <button class="nav-item primary focusable" data-action="toggle-tracking" id="toggle-btn">計測開始 ▶</button>
+        <button class="nav-item focusable" data-action="go-settings">設定 ⚙</button>
+      </nav>
+    </div>
+
+    <div id="settings" class="screen hidden">
+      <header class="header">
+        <button class="back-btn focusable" data-action="back">&#8592;</button>
+        <h1>目標歩数の設定</h1>
+      </header>
+      <div class="content">
+        <div class="goal-display">
+          <div class="goal-number" id="goal-display-value">6000</div>
+          <div class="goal-unit">歩 / 日</div>
+        </div>
+        <div class="data-grid goal-buttons">
+          <button class="nav-item focusable" data-action="goal-minus-1000">-1000</button>
+          <button class="nav-item focusable" data-action="goal-minus-100">-100</button>
+          <button class="nav-item focusable" data-action="goal-plus-100">+100</button>
+          <button class="nav-item focusable" data-action="goal-plus-1000">+1000</button>
+        </div>
+        <button class="nav-item danger focusable" data-action="reset-today">今日の歩数をリセット</button>
+        <button class="nav-item focusable" data-action="back">← もどる</button>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
